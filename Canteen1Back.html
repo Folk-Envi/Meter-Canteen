@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บันทึกมิเตอร์ไฟฟ้าและน้ำปะปา โรงอาหาร ทกท.</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body, h1, h2, h3, h4, h5, h6  {
+          font-family: Kanit, sans-serif;
+        }
+        a {
+          text-decoration: none;
+        }
+    </style>  
+</head>
+<body class="w3-theme-l5">
+    <main>
+        <div class="w3-bar w3-border w3-theme">
+            <div class="w3-bar-item w3-xxxlarge">
+            <h2>โรงอาหาร ทกท. 1 (รส.5) ด้านหลัง</h2>
+            </div> 
+        </div>
+        <br>
+        <div class="w3-container">
+            <form class="w3-container" method="post" accept-charset="UTF-8" autocomplete="off" name="canteen1back"> 
+                <div class="w3-section">
+                    <label for="Elec" class="w3-xxlarge">ปริมาณการใช้ไฟฟ้า</label>
+                    <input type="Elec" name="Elec" class="w3-input w3-border w3-margin-bottom w3-xxxlarge" required autocomplete="off">
+                </div>
+                <div class="w3-section">
+                    <label for="Water" class="w3-xxlarge">ปริมาณการใช้น้ำ</label>
+                    <input type="Water" name="Water" class="w3-input w3-border w3-margin-bottom w3-xxxlarge" required autocomplete="off">
+                </div>
+                <div class="w3-section">
+                    <label for="Waste Water treatment System" class="w3-xxlarge">การทำงานของระบบบำบัดน้ำเสีย</label>
+                    <br>
+                    <input class="w3-radio" type="radio" name="Waste Water treatment System" value="ปกติ" checked>
+                    <label>ปกติ</label>
+                    <br>
+                    <input class="w3-radio" type="radio" name="Waste Water treatment System" value="ผิดปกติ">
+                    <label>ผิดปกติ</label>
+                </div>
+                <br>
+                <div class="w3-section">
+                    <label for="Aeration" class="w3-xxlarge">การทำงานของเครื่องเติมอากาศ</label>
+                    <br>
+                    <input class="w3-radio" type="radio" name="Aeration" value="ปกติ" checked>
+                    <label>ปกติ</label>
+                    <br>
+                    <input class="w3-radio" type="radio" name="Aeration" value="ผิดปกติ">
+                    <label>ผิดปกติ</label>
+                </div>
+                <br>
+                <div class="w3-section">
+                    <label for="Mixer Chem" class="w3-xxlarge">การทำงานของเครี่องกวน/ ผสมสารเคมี</label>
+                    <br>
+                    <input class="w3-radio" type="radio" name="Mixer Chem" value="ปกติ" checked>
+                    <label>ปกติ</label>
+                    <br>
+                    <input class="w3-radio" type="radio" name="Mixer Chem" value="ผิดปกติ">
+                    <label>ผิดปกติ</label>
+                </div>
+                <br>
+                <div class="col-12 text-end">
+                    <button type="submit" class="w3-button w3-theme-d4 w3-round-large w3-block w3-xxxlarge">บันทึก</button>
+                </div>
+                <br>
+                <divclass="col-12 text-end">
+                    <a class="w3-button w3-theme-d4 w3-round-large w3-block w3-xxxlarge"" href="index.html">ย้อนกลับ</a>
+                </div>
+                <p id="demo"></p>
+
+
+
+            </form> 
+        </div>
+    </main>
+        
+
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz3f78lHbFoVMpgaSzvNeAy7HvICHG8kktNcI_fkMwQHP-QtPzm-cPw4HJ44GZ2VZEp3g/exec'
+        const form = document.forms['canteen1back']
+        
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => document.getElementById("demo").innerHTML = "<div class='alert alert-primary' role='alert'><b>ระบบบันทึกข้อมูลแล้ว!</b></div>",canteen1back.reset())
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+
+
+</body>
+</html>
