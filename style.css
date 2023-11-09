@@ -2,6 +2,7 @@ body {
     background-color: rgb(206, 242, 243);
 }
 .container {
+    margin-top: 25px;
     align-content: center;
     align-items: center ;
 }
